@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">E-söwda</string>
+    
+    <!-- Navigation -->
+    <string name="nav_home">Baş sahypa</string>
+    <string name="nav_categories">Kategoriýalar</string>
+    <string name="nav_search">Gözleg</string>
+    <string name="nav_profile">Profil</string>
+    
+    <!-- Menu -->
+    <string name="menu_cart">Sebet</string>
+    <string name="menu_orders">Sargytlar</string>
+    <string name="menu_logout">Çykmak</string>
+    
+    <!-- Auth -->
+    <string name="login">Girmek</string>
+    <string name="register">Hasaba almak</string>
+    <string name="username">Ulanyjy ady</string>
+    <string name="email">Email</string>
+    <string name="password">Parol</string>
+    <string name="full_name">Doly ady</string>
+    <string name="phone">Telefon</string>
+    <string name="address">Salgy</string>
+    
+    <!-- Products -->
+    <string name="featured_products">Aýratyn harytlar</string>
+    <string name="all_products">Ähli harytlar</string>
+    <string name="product_details">Haryt maglumatlary</string>
+    <string name="add_to_cart">Sebede goş</string>
+    <string name="price">Bahasy</string>
+    <string name="stock">Mukdar</string>
+    <string name="out_of_stock">Haryt ýok</string>
+    <string name="discount">Arzanladyş</string>
+    
+    <!-- Cart -->
+    <string name="cart">Sebet</string>
+    <string name="cart_empty">Sebet boş</string>
+    <string name="cart_total">Jemi</string>
+    <string name="checkout">Töleg</string>
+    <string name="remove_from_cart">Aýyr</string>
+    <string name="clear_cart">Arassala</string>
+    
+    <!-- Orders -->
+    <string name="orders">Sargytlar</string>
+    <string name="order_details">Sargyt maglumatlary</string>
+    <string name="order_status">Ýagdaý</string>
+    <string name="order_total">Jemi mukdar</string>
+    <string name="shipping_address">Ugratmak salgysy</string>
+    <string name="place_order">Sargyt bermek</string>
+    
+    <!-- Status -->
+    <string name="status_pending">Garaşylýar</string>
+    <string name="status_processing">Işlenýär</string>
+    <string name="status_shipped">Ugradyldy</string>
+    <string name="status_delivered">Gowşuryldy</string>
+    <string name="status_cancelled">Ýatyryldy</string>
+    
+    <!-- Profile -->
+    <string name="profile">Profil</string>
+    <string name="edit_profile">Profili düzet</string>
+    <string name="my_orders">Meniň sargytlarym</string>
+    <string name="logout">Çykmak</string>
+    
+    <!-- Search -->
+    <string name="search">Gözleg</string>
+    <string name="search_hint">Haryt gözle...</string>
+    <string name="no_results">Netije tapylmady</string>
+    
+    <!-- Recommendations -->
+    <string name="recommended_for_you">Siziň üçin maslahatlar</string>
+    <string name="similar_products">Meňzeş harytlar</string>
+    
+    <!-- Categories -->
+    <string name="categories">Kategoriýalar</string>
+    <string name="view_all">Ählisini gör</string>
+    
+    <!-- Messages -->
+    <string name="success">Üstünlikli!</string>
+    <string name="error">Ýalňyşlyk</string>
+    <string name="loading">Ýüklenýär...</string>
+    <string name="network_error">Baglanyşyk ýalňyşlygy</string>
+    <string name="added_to_cart">Sebede goşuldy</string>
+    <string name="order_placed">Sargyt üstünlikli berildi</string>
+    
+    <!-- Actions -->
+    <string name="save">Ýatda sakla</string>
+    <string name="cancel">Ýatyrmak</string>
+    <string name="delete">Pozmak</string>
+    <string name="update">Täzele</string>
+    <string name="confirm">Tassykla</string>
+    
+    <!-- Sort -->
+    <string name="sort_by">Tertiplemek</string>
+    <string name="sort_price_asc">Baha: Pes → Ýokary</string>
+    <string name="sort_price_desc">Baha: Ýokary → Pes</string>
+    <string name="sort_rating">Reýting</string>
+    <string name="sort_sales">Satuw</string>
+    <string name="sort_newest">Täze</string>
+</resources>

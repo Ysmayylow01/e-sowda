@@ -1,0 +1,102 @@
+# ===============================
+# Python
+# ===============================
+__pycache__/
+*.py[cod]
+*.pyo
+*$py.class
+*.so
+.Python
+
+# Virtual environments
+env/
+venv/
+ENV/
+.venv/
+.python-version
+
+# Pip
+pip-log.txt
+pip-delete-this-directory.txt
+
+# ===============================
+# Flask
+# ===============================
+instance/
+.webassets-cache
+.flaskenv
+
+# ===============================
+# Database
+# ===============================
+*.db
+*.sqlite
+*.sqlite3
+
+# ===============================
+# Environment variables
+# ===============================
+.env
+.env.*
+!.env.example
+
+# ===============================
+# Logs
+# ===============================
+*.log
+logs/
+
+# ===============================
+# Cache / temp
+# ===============================
+.cache/
+*.tmp
+*.temp
+
+# ===============================
+# IDE / Editors
+# ===============================
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# ===============================
+# OS
+# ===============================
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ===============================
+# Build / dist
+# ===============================
+build/
+dist/
+*.egg-info/
+
+# ===============================
+# Tests / coverage
+# ===============================
+.coverage
+htmlcov/
+.pytest_cache/
+
+# ===============================
+# Node (eger admin UI bar bolsa)
+# ===============================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# ===============================
+# Android (eger repo-da bar bolsa)
+# ===============================
+*.apk
+*.aab
+.gradle/
+local.properties
+/captures/
+.externalNativeBuild/
