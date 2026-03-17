@@ -1,4 +1,4 @@
-const API_URL = 'http://localhost:5000/api';
+const API_URL = 'http://85.198.97.249:5000/api';
 let token = localStorage.getItem('adminToken');
 let currentUser = null;
 

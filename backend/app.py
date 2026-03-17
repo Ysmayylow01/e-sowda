@@ -1,4 +1,4 @@
-from flask import jsonify, request, send_from_directory
+from flask import jsonify, request, send_from_directory, render_template
 from flask_jwt_extended import create_access_token, jwt_required, get_jwt_identity
 from werkzeug.utils import secure_filename
 from config import app, db, bcrypt, User, Category, Product, CartItem, Order, OrderItem
@@ -14,6 +14,11 @@ def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 # ==================== AUTH ROUTES ====================
+
+
+@app.route('/admin')
+def dashboard():
+    return render_template('index.html')
 
 @app.route('/api/auth/register', methods=['POST'])
 def register():
