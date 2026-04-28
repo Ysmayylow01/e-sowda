@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="tk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-söwda — Admin Panel</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- ==================== LOGIN PAGE ==================== -->
+    <div id="loginPage" class="login-container">
+        <div class="login-box">
+            <div class="login-header">
+                <i class="fas fa-shopping-bag"></i>
+                <h1>E-söwda</h1>
+                <p>Admin Panel</p>
+            </div>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label><i class="fas fa-user"></i> Ulanyjy ady</label>
+                    <input type="text" id="loginUsername" required autocomplete="username">
+                </div>
+                <div class="form-group">
+                    <label><i class="fas fa-lock"></i> Parol</label>
+                    <input type="password" id="loginPassword" required autocomplete="current-password">
+                </div>
+                <button type="submit" class="btn btn-primary">
+                    <i class="fas fa-sign-in-alt"></i> Girmek
+                </button>
+            </form>
+            <div id="loginError" class="error-message"></div>
+        </div>
+    </div>
+
+    <!-- ==================== MAIN DASHBOARD ==================== -->
+    <div id="dashboard" class="dashboard" style="display: none;">
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <i class="fas fa-shopping-bag"></i>
+                <h2>E-söwda</h2>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="#" class="nav-item active" data-page="overview">
+                    <i class="fas fa-chart-line"></i> Umumy maglumat
+                </a>
+                <a href="#" class="nav-item" data-page="products">
+                    <i class="fas fa-box"></i> Harytlar
+                </a>
+                <a href="#" class="nav-item" data-page="categories">
+                    <i class="fas fa-tags"></i> Kategoriýalar
+                </a>
+                <a href="#" class="nav-item" data-page="orders">
+                    <i class="fas fa-shopping-cart"></i> Sargytlar
+                </a>
+                <a href="#" class="nav-item" data-page="users">
+                    <i class="fas fa-users"></i> Ulanyjylar
+                </a>
+            </nav>
+            <div class="sidebar-footer">
+                <button type="button" id="logoutBtn" class="btn btn-danger">
+                    <i class="fas fa-sign-out-alt"></i> Çykmak
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="topbar">
+                <h1 id="pageTitle">Umumy maglumat</h1>
+                <div class="user-info">
+                    <span id="adminName">Admin</span>
+                    <i class="fas fa-user-circle"></i>
+                </div>
+            </header>
+
+            <!-- ===== OVERVIEW PAGE ===== -->
+            <section id="overviewPage" class="content-page">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon blue">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3 id="totalUsers">0</h3>
+                            <p>Ulanyjylar</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon green">
+                            <i class="fas fa-box"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3 id="totalProducts">0</h3>
+                            <p>Harytlar</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon orange">
+                            <i class="fas fa-shopping-cart"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3 id="totalOrders">0</h3>
+                            <p>Sargytlar</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon purple">
+                            <i class="fas fa-dollar-sign"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3 id="totalRevenue">0 TMT</h3>
+                            <p>Girdeji</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="charts-grid">
+                    <div class="chart-card">
+                        <h3>Iň köp satylýan harytlar</h3>
+                        <div id="topProductsList" class="list-container"></div>
+                    </div>
+                    <div class="chart-card">
+                        <h3>Soňky sargytlar</h3>
+                        <div id="recentOrdersList" class="list-container"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ===== PRODUCTS PAGE ===== -->
+            <section id="productsPage" class="content-page" style="display: none;">
+                <div class="page-header">
+                    <h2>Harytlar</h2>
+                    <button type="button" id="addProductBtn" class="btn btn-primary">
+                        <i class="fas fa-plus"></i> Täze haryt
+                    </button>
+                </div>
+                <div class="table-container">
+                    <table id="productsTable">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Surat</th>
+                                <th>Ady</th>
+                                <th>Kategoriýa</th>
+                                <th>Bahasy</th>
+                                <th>Mukdar</th>
+                                <th>Hereketler</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- ===== CATEGORIES PAGE ===== -->
+            <section id="categoriesPage" class="content-page" style="display: none;">
+                <div class="page-header">
+                    <h2>Kategoriýalar</h2>
+                    <button type="button" id="addCategoryBtn" class="btn btn-primary">
+                        <i class="fas fa-plus"></i> Täze kategoriýa
+                    </button>
+                </div>
+                <div class="categories-grid" id="categoriesGrid"></div>
+            </section>
+
+            <!-- ===== ORDERS PAGE ===== -->
+            <section id="ordersPage" class="content-page" style="display: none;">
+                <div class="page-header">
+                    <h2>Sargytlar</h2>
+                </div>
+                <div class="table-container">
+                    <table id="ordersTable">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Ulanyjy</th>
+                                <th>Mukdar</th>
+                                <th>Ýagdaý</th>
+                                <th>Sene</th>
+                                <th>Hereketler</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- ===== USERS PAGE ===== -->
+            <section id="usersPage" class="content-page" style="display: none;">
+                <div class="page-header">
+                    <h2>Ulanyjylar</h2>
+                </div>
+                <div class="table-container">
+                    <table id="usersTable">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Ulanyjy ady</th>
+                                <th>Email</th>
+                                <th>Doly ady</th>
+                                <th>Telefon</th>
+                                <th>Goşulan sene</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- ==================== PRODUCT MODAL ==================== -->
+    <div id="productModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="productModalTitle">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="productModalTitle">Täze haryt</h2>
+                <!-- FIX: type="button" goşuldy -->
+                <button type="button" class="close-btn" aria-label="Ýap">&times;</button>
+            </div>
+            <form id="productForm" novalidate>
+                <input type="hidden" id="productId">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="productName">Ady (Iňlis)</label>
+                        <input type="text" id="productName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="productNameTm">Ady (Türkmen)</label>
+                        <input type="text" id="productNameTm">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="productDescription">Düşündiriş</label>
+                    <textarea id="productDescription" rows="3"></textarea>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="productPrice">Bahasy (TMT)</label>
+                        <input type="number" step="0.01" min="0.01" id="productPrice" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="productDiscountPrice">Arzanladyş bahasy</label>
+                        <input type="number" step="0.01" min="0" id="productDiscountPrice">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="productStock">Mukdar</label>
+                        <input type="number" min="0" id="productStock" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="productCategory">Kategoriýa</label>
+                        <!-- FIX: required bilen birlikde required validation JS-de hem barlanylýar -->
+                        <select id="productCategory" required>
+                            <option value="">Kategoriýa saýlaň</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="productBrand">Marka</label>
+                        <input type="text" id="productBrand">
+                    </div>
+                    <div class="form-group">
+                        <label for="productImage">Surat URL</label>
+                        <input type="text" id="productImage">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <!-- FIX: for="productFeatured" attribute goşuldy -->
+                    <label for="productFeatured" style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
+                        <input type="checkbox" id="productFeatured">
+                        Aýratyn haryt
+                    </label>
+                </div>
+                <div class="modal-footer">
+                    <!-- FIX: type="button" goşuldy -->
+                    <button type="button" class="btn btn-secondary close-btn">Ýapmak</button>
+                    <button type="submit" class="btn btn-primary">Ýatda sakla</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- ==================== CATEGORY MODAL ==================== -->
+    <div id="categoryModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="categoryModalTitle">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="categoryModalTitle">Täze kategoriýa</h2>
+                <!-- FIX: type="button" goşuldy -->
+                <button type="button" class="close-btn" aria-label="Ýap">&times;</button>
+            </div>
+            <form id="categoryForm" novalidate>
+                <input type="hidden" id="categoryId">
+                <div class="form-group">
+                    <label for="categoryName">Ady (Iňlis)</label>
+                    <input type="text" id="categoryName" required>
+                </div>
+                <div class="form-group">
+                    <label for="categoryNameTm">Ady (Türkmen)</label>
+                    <input type="text" id="categoryNameTm">
+                </div>
+                <div class="form-group">
+                    <label for="categoryDescription">Düşündiriş</label>
+                    <textarea id="categoryDescription" rows="3"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="categoryImage">Surat URL</label>
+                    <input type="text" id="categoryImage">
+                </div>
+                <div class="modal-footer">
+                    <!-- FIX: type="button" goşuldy -->
+                    <button type="button" class="btn btn-secondary close-btn">Ýapmak</button>
+                    <button type="submit" class="btn btn-primary">Ýatda sakla</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- ==================== ORDER DETAILS MODAL ==================== -->
+    <div id="orderModal" class="modal" role="dialog" aria-modal="true">
+        <div class="modal-content large">
+            <div class="modal-header">
+                <h2>Sargyt maglumatlary</h2>
+                <!-- FIX: type="button" goşuldy -->
+                <button type="button" class="close-btn" aria-label="Ýap">&times;</button>
+            </div>
+            <div id="orderDetails"></div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}" defer></script>
+</body>
+</html>
