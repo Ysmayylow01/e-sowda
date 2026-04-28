@@ -5,25 +5,28 @@
 }
 
 :root {
-    --primary-color: #6366f1;
-    --secondary-color: #8b5cf6;
-    --success-color: #10b981;
+    --primary-color: #16a34a;   /* esasy ýaşyl */
+    --secondary-color: #15803d; /* goýy ýaşyl */
+    --success-color: #22c55e;
     --danger-color: #ef4444;
     --warning-color: #f59e0b;
-    --info-color: #3b82f6;
-    --dark: #1e293b;
-    --light: #f1f5f9;
+    --info-color: #4ade80;
+
+    --dark: #14532d;
+    --light: #f0fdf4; /* açyk ýaşyl fon */
     --white: #ffffff;
-    --border: #e2e8f0;
-    --text-primary: #0f172a;
-    --text-secondary: #64748b;
-    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    --border: #dcfce7;
+
+    --text-primary: #052e16;
+    --text-secondary: #166534;
+
+    --shadow: 0 4px 6px -1px rgba(22, 163, 74, 0.1);
+    --shadow-lg: 0 10px 15px -3px rgba(22, 163, 74, 0.15);
 }
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #e8f5e9 0%, #bbf7d0 100%);
     min-height: 100vh;
     color: var(--text-primary);
 }
@@ -96,7 +99,7 @@ body {
 
 .sidebar-header {
     padding: 25px 20px;
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    background: linear-gradient(135deg, #16a34a, #15803d);
     color: var(--white);
     display: flex;
     align-items: center;
@@ -235,10 +238,18 @@ body {
     color: var(--white);
 }
 
-.stat-icon.blue { background: linear-gradient(135deg, #667eea, #764ba2); }
-.stat-icon.green { background: linear-gradient(135deg, #10b981, #059669); }
-.stat-icon.orange { background: linear-gradient(135deg, #f59e0b, #d97706); }
-.stat-icon.purple { background: linear-gradient(135deg, #8b5cf6, #7c3aed); }
+.stat-icon.blue { 
+    background: linear-gradient(135deg, #22c55e, #16a34a); 
+}
+.stat-icon.green { 
+    background: linear-gradient(135deg, #16a34a, #15803d); 
+}
+.stat-icon.orange { 
+    background: linear-gradient(135deg, #4ade80, #22c55e); 
+}
+.stat-icon.purple { 
+    background: linear-gradient(135deg, #15803d, #166534); 
+}
 
 .stat-info h3 {
     font-size: 32px;
@@ -451,7 +462,7 @@ tbody tr:hover {
 }
 
 .btn-primary {
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    background: linear-gradient(135deg, #22c55e, #15803d);
     color: var(--white);
 }
 
